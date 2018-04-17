@@ -2,12 +2,23 @@ package generators;
 
 import java.util.Random;
 
-public class Simple7BitSignalGenerator {
+public class Simple7BitSignalGenerator implements SignalGenerator{
 
-    private static byte[] generatedSignal;
+    private byte[] generatedSignal;
+    private int signalLength;
 
-    public static byte[] generateSignal(int numberOfBytes){
-        generatedSignal = new byte[numberOfBytes];
+    public Simple7BitSignalGenerator(int signalLength) {
+        this.signalLength = signalLength;
+    }
+
+    @Override
+    public void setSignalLength(int length) {
+        this.signalLength = length;
+    }
+
+    @Override
+    public byte[] generateSignal() {
+        generatedSignal = new byte[signalLength];
         new Random().nextBytes(generatedSignal);
 
         for(int i = 0; i < generatedSignal.length; i++){
@@ -17,10 +28,9 @@ public class Simple7BitSignalGenerator {
         return generatedSignal;
     }
 
-    public static byte[] getGeneratedSignal() {
-        if(generatedSignal == null){
-            generateSignal(3);
-        }
+    @Override
+    public byte[] getGeneratedSignal() {
         return generatedSignal;
     }
+
 }

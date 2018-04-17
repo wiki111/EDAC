@@ -3,7 +3,7 @@ package generators;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class SimpleDisruptionGenerator {
+public class SimpleDisruptionGenerator implements DisruptionGenerator{
 
     private byte[] disruptedSignal;
     private float disruptionPotency = 3;
@@ -11,27 +11,11 @@ public class SimpleDisruptionGenerator {
     private int numberOfAffectedBytes = 0;
     private int numberOfCreatedErrors = 0;
 
-    public SimpleDisruptionGenerator() {
-    }
+    @Override
+    public byte[] disrupt(byte[] input) {
 
-    public int getNumberOfAffectedBytes() {
-        return numberOfAffectedBytes;
-    }
+        byte[] signal = input.clone();
 
-    public int getNumberOfCreatedErrors() {
-        return numberOfCreatedErrors;
-    }
-
-    public void setDisruptionPotency(float disruptionPotency) {
-        this.disruptionPotency = disruptionPotency;
-    }
-
-    public void setSignal(byte[] signal) {
-        this.signal = signal;
-    }
-
-    public void disruptSignal(){
-        int randomBit;
         ArrayList<Integer> bytesToDisrupt = pickRandomBytesToDisrupt(signal.length * disruptionPotency, signal.length);
 
        /* for(byte b: signal){
@@ -40,10 +24,13 @@ public class SimpleDisruptionGenerator {
 
         for(int i = 0; i < signal.length; i++){
             if(bytesToDisrupt.contains(i)){
-                signal[i] = disrupt(signal[i]);
+                signal[i] = disruptByte(signal[i]);
             }
         }
+
         this.disruptedSignal = signal;
+
+        return signal;
     }
 
     private ArrayList<Integer> pickRandomBytesToDisrupt(float amount, int total){
@@ -56,7 +43,7 @@ public class SimpleDisruptionGenerator {
         return pickedBytes;
     }
 
-    private byte disrupt(byte b){
+    private byte disruptByte(byte b){
 
         boolean createdError = true;
 
@@ -103,7 +90,15 @@ public class SimpleDisruptionGenerator {
         return disruptedByte;
     }
 
+    public void setDisruptionPotency(float disruptionPotency) {
+        this.disruptionPotency = disruptionPotency;
+    }
+
     public byte[] getDisruptedSignal() {
         return disruptedSignal;
+    }
+
+    public int getNumberOfCreatedErrors() {
+        return numberOfCreatedErrors;
     }
 }

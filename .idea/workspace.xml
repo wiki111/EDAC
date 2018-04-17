@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/EvenParityBitControl.java" line="166" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="a534df3e-bd71-4926-b172-b5dac21a6ba7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/SimulationRunner.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/algorithms/CyclicRedundancyCheck16Bit.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/algorithms/EDACAlgorithm.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/console/BasicConsoleResultPrinter.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/console/ConsoleResultPrinter.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/generators/DisruptionGenerator.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/generators/SignalGenerator.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/EvenParityBitControl.java" afterPath="$PROJECT_DIR$/src/EvenParityBitControl.java" />
+      <change beforePath="$PROJECT_DIR$/out/production/EDAC/EvenParityBitControl.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/EDAC/Main.class" afterPath="$PROJECT_DIR$/out/production/EDAC/Main.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/EDAC/generators/Simple7BitSignalGenerator.class" afterPath="$PROJECT_DIR$/out/production/EDAC/generators/Simple7BitSignalGenerator.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/EDAC/generators/SimpleDisruptionGenerator.class" afterPath="$PROJECT_DIR$/out/production/EDAC/generators/SimpleDisruptionGenerator.class" />
+      <change beforePath="$PROJECT_DIR$/src/EvenParityBitControl.java" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
+      <change beforePath="$PROJECT_DIR$/src/generators/Simple7BitSignalGenerator.java" afterPath="$PROJECT_DIR$/src/generators/Simple7BitSignalGenerator.java" />
       <change beforePath="$PROJECT_DIR$/src/generators/SimpleDisruptionGenerator.java" afterPath="$PROJECT_DIR$/src/generators/SimpleDisruptionGenerator.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -20,52 +28,54 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <leaf>
+      <file leaf-file-name="SimulationRunner.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SimulationRunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="11" column="48" lean-forward="false" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
-              <folding />
+            <state relative-caret-position="558">
+              <caret line="31" column="44" lean-forward="true" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="EvenParityBitControl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EvenParityBitControl.java">
+        <entry file="file://$PROJECT_DIR$/src/algorithms/EvenParityBitControl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="33" column="46" lean-forward="false" selection-start-line="33" selection-start-column="46" selection-end-line="33" selection-end-column="46" />
+            <state relative-caret-position="312">
+              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#893#894#0" expanded="true" />
-                <element signature="e#935#936#0" expanded="true" />
-                <element signature="method#prepareData#0;class#EvenParityBitControl#0" expanded="false" />
-                <element signature="e#5761#5762#0" expanded="true" />
-                <element signature="e#5811#5812#0" expanded="true" />
+                <element signature="method#reportError#0;class#EvenParityBitControl#0" expanded="false" />
+                <element signature="method#byteArrayObjectToPrimitive#0;class#EvenParityBitControl#0" expanded="false" />
+                <element signature="method#byteArrayPrimitiveToObject#0;class#EvenParityBitControl#0" expanded="false" />
+                <element signature="method#getEncodedSignalRepresentation#0;class#EvenParityBitControl#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SimpleDisruptionGenerator.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SimpleDisruptionGenerator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/generators/SimpleDisruptionGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
-              <caret line="51" column="40" lean-forward="false" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+            <state relative-caret-position="558">
+              <caret line="32" column="22" lean-forward="true" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#420#421#0" expanded="true" />
-                <element signature="e#464#465#0" expanded="true" />
-                <element signature="e#509#510#0" expanded="true" />
-                <element signature="e#553#554#0" expanded="true" />
-                <element signature="e#618#619#0" expanded="true" />
-                <element signature="e#676#677#0" expanded="true" />
-                <element signature="e#720#721#0" expanded="true" />
-                <element signature="e#756#757#0" expanded="true" />
-                <element signature="e#3291#3292#0" expanded="true" />
-                <element signature="e#3329#3330#0" expanded="true" />
+                <element signature="method#pickRandomBytesToDisrupt#0;class#SimpleDisruptionGenerator#0" expanded="false" />
+                <element signature="method#disruptByte#0;class#SimpleDisruptionGenerator#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EDACAlgorithm.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/algorithms/EDACAlgorithm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="9" column="14" lean-forward="false" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -73,49 +83,15 @@
       <file leaf-file-name="Simple7BitSignalGenerator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/generators/Simple7BitSignalGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ByteArrayIterable.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utilities/ByteArrayIterable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="31" column="17" lean-forward="false" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
+            <state relative-caret-position="162">
+              <caret line="9" column="56" lean-forward="false" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
               <folding>
-                <element signature="e#187#188#0" expanded="true" />
-                <element signature="e#221#222#0" expanded="true" />
-                <element signature="e#460#461#0" expanded="true" />
-                <element signature="e#544#545#0" expanded="true" />
+                <element signature="e#285#286#0" expanded="true" />
+                <element signature="e#346#347#0" expanded="true" />
+                <element signature="e#388#389#0" expanded="true" />
+                <element signature="e#775#776#0" expanded="true" />
+                <element signature="e#813#814#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ByteIterable.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utilities/ByteIterable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-              <folding>
-                <element signature="e#181#182#0" expanded="true" />
-                <element signature="e#223#224#0" expanded="true" />
-                <element signature="e#419#420#0" expanded="true" />
-                <element signature="e#469#470#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EDAC.iml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EDAC.iml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -125,6 +101,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -145,10 +122,18 @@
         <option value="$PROJECT_DIR$/src/generators/SimpleGenerator.java" />
         <option value="$PROJECT_DIR$/src/ParityBitControl.java" />
         <option value="$PROJECT_DIR$/src/generators/SimpleSignalGenerator.java" />
-        <option value="$PROJECT_DIR$/src/generators/Simple7BitSignalGenerator.java" />
-        <option value="$PROJECT_DIR$/src/generators/SimpleDisruptionGenerator.java" />
         <option value="$PROJECT_DIR$/src/EvenParityBitControl.java" />
+        <option value="$PROJECT_DIR$/src/algorithms/CyclicRedundancyCheck16Bit.java" />
+        <option value="$PROJECT_DIR$/src/generators/DisruptionGenerator.java" />
+        <option value="$PROJECT_DIR$/src/generators/SignalGenerator.java" />
+        <option value="$PROJECT_DIR$/src/console/ConsoleResultPrinter.java" />
+        <option value="$PROJECT_DIR$/src/console/BasicConsoleResultPrinter.java" />
+        <option value="$PROJECT_DIR$/src/generators/Simple7BitSignalGenerator.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/algorithms/EDACAlgorithm.java" />
+        <option value="$PROJECT_DIR$/src/algorithms/EvenParityBitControl.java" />
+        <option value="$PROJECT_DIR$/src/SimulationRunner.java" />
+        <option value="$PROJECT_DIR$/src/generators/SimpleDisruptionGenerator.java" />
       </list>
     </option>
   </component>
@@ -180,8 +165,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -194,6 +177,18 @@
               <item name="EDAC" type="b2602c69:ProjectViewProjectNode" />
               <item name="EDAC" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EDAC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EDAC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="algorithms" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EDAC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EDAC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="console" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="EDAC" type="b2602c69:ProjectViewProjectNode" />
@@ -215,6 +210,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -287,12 +284,13 @@
       <option name="presentableId" value="Default" />
       <updated>1523638300418</updated>
       <workItem from="1523638305726" duration="15510000" />
-      <workItem from="1523871011572" duration="6764000" />
+      <workItem from="1523871011572" duration="7522000" />
+      <workItem from="1523959813845" duration="9760000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22274000" />
+    <option name="totallyTimeSpent" value="32792000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="2495" height="1416" extended-state="0" />
@@ -314,7 +312,7 @@
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24989791" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32944834" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -338,13 +336,13 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/EvenParityBitControl.java</url>
-          <line>219</line>
+          <url>file://$PROJECT_DIR$/src/algorithms/EvenParityBitControl.java</url>
+          <line>27</line>
           <properties />
-          <option name="timeStamp" value="4" />
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="5" />
+      <option name="time" value="14" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -357,17 +355,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EvenParityBitControl.java">
+    <entry file="file://$PROJECT_DIR$/src/algorithms/EvenParityBitControl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="33" column="46" lean-forward="false" selection-start-line="33" selection-start-column="46" selection-end-line="33" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#reportError#0;class#EvenParityBitControl#0" expanded="false" />
+            <element signature="method#byteArrayObjectToPrimitive#0;class#EvenParityBitControl#0" expanded="false" />
+            <element signature="method#byteArrayPrimitiveToObject#0;class#EvenParityBitControl#0" expanded="false" />
+            <element signature="method#getEncodedSignalRepresentation#0;class#EvenParityBitControl#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/generators/Simple7BitSignalGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utilities/ByteArrayIterable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="31" column="17" lean-forward="false" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
+          <folding>
+            <element signature="e#187#188#0" expanded="false" />
+            <element signature="e#221#222#0" expanded="false" />
+            <element signature="e#460#461#0" expanded="false" />
+            <element signature="e#544#545#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utilities/ByteIterable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+          <folding>
+            <element signature="e#181#182#0" expanded="false" />
+            <element signature="e#223#224#0" expanded="false" />
+            <element signature="e#419#420#0" expanded="false" />
+            <element signature="e#469#470#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EDAC.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/algorithms/EvenParityBitControl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1152">
           <caret line="95" column="12" lean-forward="true" selection-start-line="95" selection-start-column="12" selection-end-line="95" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#893#894#0" expanded="true" />
-            <element signature="e#935#936#0" expanded="true" />
-            <element signature="method#prepareData#0;class#EvenParityBitControl#0" expanded="false" />
-            <element signature="e#5761#5762#0" expanded="true" />
-            <element signature="e#5811#5812#0" expanded="true" />
+            <element signature="method#reportError#0;class#EvenParityBitControl#0" expanded="false" />
+            <element signature="method#byteArrayObjectToPrimitive#0;class#EvenParityBitControl#0" expanded="false" />
+            <element signature="method#byteArrayPrimitiveToObject#0;class#EvenParityBitControl#0" expanded="false" />
+            <element signature="method#getEncodedSignalRepresentation#0;class#EvenParityBitControl#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -385,10 +446,10 @@
         <state relative-caret-position="486">
           <caret line="31" column="17" lean-forward="true" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
           <folding>
-            <element signature="e#187#188#0" expanded="true" />
-            <element signature="e#221#222#0" expanded="true" />
-            <element signature="e#460#461#0" expanded="true" />
-            <element signature="e#544#545#0" expanded="true" />
+            <element signature="e#187#188#0" expanded="false" />
+            <element signature="e#221#222#0" expanded="false" />
+            <element signature="e#460#461#0" expanded="false" />
+            <element signature="e#544#545#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -398,10 +459,10 @@
         <state relative-caret-position="432">
           <caret line="28" column="13" lean-forward="true" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
           <folding>
-            <element signature="e#181#182#0" expanded="true" />
-            <element signature="e#223#224#0" expanded="true" />
-            <element signature="e#419#420#0" expanded="true" />
-            <element signature="e#469#470#0" expanded="true" />
+            <element signature="e#181#182#0" expanded="false" />
+            <element signature="e#223#224#0" expanded="false" />
+            <element signature="e#419#420#0" expanded="false" />
+            <element signature="e#469#470#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -431,13 +492,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utilities/ByteIterable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
+        <state relative-caret-position="504">
           <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
           <folding>
-            <element signature="e#181#182#0" expanded="true" />
-            <element signature="e#223#224#0" expanded="true" />
-            <element signature="e#419#420#0" expanded="true" />
-            <element signature="e#469#470#0" expanded="true" />
+            <element signature="e#181#182#0" expanded="false" />
+            <element signature="e#223#224#0" expanded="false" />
+            <element signature="e#419#420#0" expanded="false" />
+            <element signature="e#469#470#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -447,62 +508,119 @@
         <state relative-caret-position="558">
           <caret line="31" column="17" lean-forward="false" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
           <folding>
-            <element signature="e#187#188#0" expanded="true" />
-            <element signature="e#221#222#0" expanded="true" />
-            <element signature="e#460#461#0" expanded="true" />
-            <element signature="e#544#545#0" expanded="true" />
+            <element signature="e#187#188#0" expanded="false" />
+            <element signature="e#221#222#0" expanded="false" />
+            <element signature="e#460#461#0" expanded="false" />
+            <element signature="e#544#545#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/generators/Simple7BitSignalGenerator.java">
+    <entry file="file://$PROJECT_DIR$/src/algorithms/CyclicRedundancyCheck16Bit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state relative-caret-position="675">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding>
+            <element signature="e#196#197#0" expanded="true" />
+            <element signature="e#232#233#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/generators/DisruptionGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="35" lean-forward="false" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/generators/SimpleDisruptionGenerator.java">
+    <entry file="file://$PROJECT_DIR$/src/console/ConsoleResultPrinter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="51" column="40" lean-forward="false" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#420#421#0" expanded="true" />
-            <element signature="e#464#465#0" expanded="true" />
-            <element signature="e#509#510#0" expanded="true" />
-            <element signature="e#553#554#0" expanded="true" />
-            <element signature="e#618#619#0" expanded="true" />
-            <element signature="e#676#677#0" expanded="true" />
-            <element signature="e#720#721#0" expanded="true" />
-            <element signature="e#756#757#0" expanded="true" />
-            <element signature="e#3291#3292#0" expanded="true" />
-            <element signature="e#3329#3330#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="54">
+          <caret line="3" column="124" lean-forward="false" selection-start-line="3" selection-start-column="124" selection-end-line="3" selection-end-column="124" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EvenParityBitControl.java">
+    <entry file="file://$PROJECT_DIR$/src/generators/SignalGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="33" column="46" lean-forward="false" selection-start-line="33" selection-start-column="46" selection-end-line="33" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#893#894#0" expanded="true" />
-            <element signature="e#935#936#0" expanded="true" />
-            <element signature="method#prepareData#0;class#EvenParityBitControl#0" expanded="false" />
-            <element signature="e#5761#5762#0" expanded="true" />
-            <element signature="e#5811#5812#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="54">
+          <caret line="3" column="37" lean-forward="false" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/console/BasicConsoleResultPrinter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="38" column="74" lean-forward="false" selection-start-line="38" selection-start-column="74" selection-end-line="38" selection-end-column="74" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="48" lean-forward="false" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
+        <state relative-caret-position="504">
+          <caret line="34" column="31" lean-forward="true" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/generators/Simple7BitSignalGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="56" lean-forward="false" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
+          <folding>
+            <element signature="e#285#286#0" expanded="true" />
+            <element signature="e#346#347#0" expanded="true" />
+            <element signature="e#388#389#0" expanded="true" />
+            <element signature="e#775#776#0" expanded="true" />
+            <element signature="e#813#814#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/algorithms/EDACAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="14" lean-forward="false" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/algorithms/EvenParityBitControl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#reportError#0;class#EvenParityBitControl#0" expanded="false" />
+            <element signature="method#byteArrayObjectToPrimitive#0;class#EvenParityBitControl#0" expanded="false" />
+            <element signature="method#byteArrayPrimitiveToObject#0;class#EvenParityBitControl#0" expanded="false" />
+            <element signature="method#getEncodedSignalRepresentation#0;class#EvenParityBitControl#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SimulationRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="31" column="44" lean-forward="true" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/generators/SimpleDisruptionGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="32" column="22" lean-forward="true" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+          <folding>
+            <element signature="method#pickRandomBytesToDisrupt#0;class#SimpleDisruptionGenerator#0" expanded="false" />
+            <element signature="method#disruptByte#0;class#SimpleDisruptionGenerator#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
