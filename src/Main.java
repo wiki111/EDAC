@@ -1,10 +1,10 @@
-import algorithms.CyclicRedundancyCheck16Bit;
 import algorithms.EDACAlgorithm;
 import algorithms.EvenParityBitControl;
 import generators.DisruptionGenerator;
 import generators.SignalGenerator;
 import generators.Simple7BitSignalGenerator;
 import generators.SimpleDisruptionGenerator;
+import simulation.SimulationRunner;
 
 public class Main {
 

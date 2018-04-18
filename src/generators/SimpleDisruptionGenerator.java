@@ -1,6 +1,8 @@
 package generators;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class SimpleDisruptionGenerator implements DisruptionGenerator{
@@ -10,6 +12,15 @@ public class SimpleDisruptionGenerator implements DisruptionGenerator{
     private byte[] signal;
     private int numberOfAffectedBytes = 0;
     private int numberOfCreatedErrors = 0;
+    private Map<Integer, ArrayList<Integer>> disruptedBits;
+    private ArrayList<Integer> pickedBytes;
+    private ArrayList<Integer> affectedBits;
+    private int currentDataIndex;
+
+    public SimpleDisruptionGenerator() {
+        disruptedBits = new HashMap<>();
+        affectedBits = new ArrayList<>();
+    }
 
     @Override
     public byte[] disrupt(byte[] input) {
@@ -18,24 +29,20 @@ public class SimpleDisruptionGenerator implements DisruptionGenerator{
 
         ArrayList<Integer> bytesToDisrupt = pickRandomBytesToDisrupt(signal.length * disruptionPotency, signal.length);
 
-       /* for(byte b: signal){
-            System.out.println("Input signal " + Integer.toBinaryString(b & 255 | 256).substring(1));
-        } */
-
         for(int i = 0; i < signal.length; i++){
             if(bytesToDisrupt.contains(i)){
+                currentDataIndex = i;
+                affectedBits.clear();
                 signal[i] = disruptByte(signal[i]);
             }
         }
-
-        this.disruptedSignal = signal;
 
         return signal;
     }
 
     private ArrayList<Integer> pickRandomBytesToDisrupt(float amount, int total){
         int numberOfBytes = Math.round(amount);
-        ArrayList<Integer> pickedBytes = new ArrayList<>();
+        pickedBytes = new ArrayList<>();
         for(int i = 0; i < numberOfBytes ; i++){
             int randomByteIndex = ThreadLocalRandom.current().nextInt(0, total);
             pickedBytes.add(randomByteIndex);
@@ -80,12 +87,14 @@ public class SimpleDisruptionGenerator implements DisruptionGenerator{
                             +  " ) "
                             + Integer.toBinaryString(disruptedByte & 255 | 256).substring(1)
             );
+            affectedBits.add(randomBit1);
+            affectedBits.add(randomBit2);
             numberOfCreatedErrors++;
         }
 
+        disruptedBits.put(currentDataIndex, (ArrayList<Integer>) affectedBits.clone());
+
         numberOfAffectedBytes++;
-
-
 
         return disruptedByte;
     }
@@ -100,5 +109,10 @@ public class SimpleDisruptionGenerator implements DisruptionGenerator{
 
     public int getNumberOfCreatedErrors() {
         return numberOfCreatedErrors;
+    }
+
+    @Override
+    public Map<Integer, ArrayList<Integer>> getDisruptedBits() {
+        return disruptedBits;
     }
 }
