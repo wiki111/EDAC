@@ -54,7 +54,7 @@ public class CyclicRedundancyCheck16Bit implements EDACAlgorithm {
         int crc = 0;
         for (byte b : data) {
             byte pos = (byte) ((crc >> 8) ^ b);
-            crc = (int)(((crc << 8) & ~(0xFFFF0000)) ^ lookupTable[pos]);
+            crc = (int)(((crc << 8) & ~(0xFFFF0000)) ^ lookupTable[(int)pos & 0xFF]);
         }
         System.out.println("Computed CRC16 code : " + String.format("0x%08X",crc));
         return crc;

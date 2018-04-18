@@ -36,8 +36,9 @@ public class Main {
         runner.runSimulation();
         */
 
+        SignalGenerator signalGenerator = new Simple7BitSignalGenerator(100);
         CyclicRedundancyCheck16Bit crc16 = new CyclicRedundancyCheck16Bit();
-        crc16.decode(crc16.encode(new byte[]{0x01, 0x02}));
+        crc16.decode(crc16.encode(signalGenerator.generateSignal()));
 
     }
 }
