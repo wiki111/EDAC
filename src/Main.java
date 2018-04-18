@@ -1,3 +1,4 @@
+import algorithms.CyclicRedundancyCheck16Bit;
 import algorithms.EDACAlgorithm;
 import algorithms.EvenParityBitControl;
 import generators.DisruptionGenerator;
@@ -26,14 +27,17 @@ public class Main {
         System.out.println(crc16.getCalculatedCRC());
         System.out.println(String.format("0x%08X", crc16.getCalculatedCRC()));
         */
-
+        /*
         SignalGenerator signalGenerator = new Simple7BitSignalGenerator(3);
         DisruptionGenerator disruptionGenerator = new SimpleDisruptionGenerator();
         EDACAlgorithm algorithm = new EvenParityBitControl();
 
         SimulationRunner runner = new SimulationRunner(algorithm, signalGenerator, disruptionGenerator);
         runner.runSimulation();
+        */
 
+        CyclicRedundancyCheck16Bit crc16 = new CyclicRedundancyCheck16Bit();
+        crc16.computeCRCWithLookupTableFor(new byte[]{0x01, 0x02});
 
     }
 }
