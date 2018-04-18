@@ -84,11 +84,28 @@ public class CyclicRedundancyCheck16Bit implements EDACAlgorithm {
 
     @Override
     public byte[] encode(byte[] data) {
-        return new byte[0];
+
+        return appendCRC(data, computeCRCWithLookupTableFor(data));
+
+    }
+
+    private byte[] appendCRC(byte[] data, int crc){
+        byte[] dataWithAppendedCRC = new byte[data.length + 2];
+        System.arraycopy(data, 0, dataWithAppendedCRC, 0, data.length);
+        dataWithAppendedCRC[data.length + 1] = (byte)(crc & ~(0x11111100));
+        dataWithAppendedCRC[data.length] = (byte)((crc >> 8) & ~(0x11111100));
+        return dataWithAppendedCRC;
     }
 
     @Override
     public byte[] decode(byte[] data) {
+
+        int crc = computeCRCWithLookupTableFor(data);
+
+        if(crc == 0){
+            System.out.println("Data Correct !");
+        }
+
         return new byte[0];
     }
 

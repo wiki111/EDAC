@@ -37,7 +37,7 @@ public class Main {
         */
 
         CyclicRedundancyCheck16Bit crc16 = new CyclicRedundancyCheck16Bit();
-        crc16.computeCRCWithLookupTableFor(new byte[]{0x01, 0x02});
+        crc16.decode(crc16.encode(new byte[]{0x01, 0x02}));
 
     }
 }
