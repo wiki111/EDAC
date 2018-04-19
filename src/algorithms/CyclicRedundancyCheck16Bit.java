@@ -3,15 +3,37 @@ package algorithms;
 public class CyclicRedundancyCheck16Bit implements EDACAlgorithm {
 
     private static final int generator_polynomial = 0x00001021;
+    private static final String CRC16_ERROR = "[CRC16 DATA ERROR] The data is corrupted.";
 
     private int calculatedCRC;
-    private int numberOfErrors;
-    private String errorLog;
-    private int numberOfCorrectedErrors;
+    private int numberOfErrors = 0;
+    private String errorLog = "";
+    private int numberOfCorrectedErrors = 0;
     private int[] lookupTable;
 
     public CyclicRedundancyCheck16Bit() {
         calculateLookupTable();
+    }
+
+    private void calculateLookupTable(){
+        lookupTable = new int[256];
+
+        for(int divident = 0; divident < 256; divident++){
+
+            int currentByte = divident << 8;
+
+            for(byte bit = 0; bit < 8; bit++){
+                if((currentByte & 0x8000) != 0){
+                    currentByte <<= 1;
+                    currentByte ^= generator_polynomial;
+                }else {
+                    currentByte <<= 1;
+                }
+                currentByte &= ~(1 << 16);
+            }
+            lookupTable[divident] = currentByte;
+        }
+
     }
 
     public int getCalculatedCRC() {
@@ -50,6 +72,11 @@ public class CyclicRedundancyCheck16Bit implements EDACAlgorithm {
         calculatedCRC = crc;
     }
 
+    @Override
+    public byte[] encode(byte[] data) {
+        return appendCRC(data, computeCRCWithLookupTableFor(data));
+    }
+
     public int computeCRCWithLookupTableFor(byte[] data){
         int crc = 0;
         for (byte b : data) {
@@ -58,35 +85,6 @@ public class CyclicRedundancyCheck16Bit implements EDACAlgorithm {
         }
         System.out.println("Computed CRC16 code : " + String.format("0x%08X",crc));
         return crc;
-    }
-
-    private void calculateLookupTable(){
-        lookupTable = new int[256];
-
-        for(int divident = 0; divident < 256; divident++){
-
-            int currentByte = divident << 8;
-
-            for(byte bit = 0; bit < 8; bit++){
-                if((currentByte & 0x8000) != 0){
-                    currentByte <<= 1;
-                    currentByte ^= generator_polynomial;
-                }else {
-                    currentByte <<= 1;
-                }
-                currentByte &= ~(1 << 16);
-            }
-            lookupTable[divident] = currentByte;
-        }
-
-    }
-
-
-    @Override
-    public byte[] encode(byte[] data) {
-
-        return appendCRC(data, computeCRCWithLookupTableFor(data));
-
     }
 
     private byte[] appendCRC(byte[] data, int crc){
@@ -103,24 +101,27 @@ public class CyclicRedundancyCheck16Bit implements EDACAlgorithm {
         int crc = computeCRCWithLookupTableFor(data);
 
         if(crc == 0){
-            System.out.println("Data Correct !");
+            byte[] decodedData = new byte[data.length - 2];
+            System.arraycopy(data, 0, decodedData, 0, data.length - 2);
+            return decodedData;
+        }else{
+            errorLog = CRC16_ERROR;
+            return new byte[0];
         }
-
-        return new byte[0];
     }
 
     @Override
     public String getErrors() {
-        return null;
+        return errorLog;
     }
 
     @Override
     public int getErrorsCount() {
-        return 0;
+        return numberOfErrors;
     }
 
     @Override
     public int getCorrectedErrorsCount() {
-        return 0;
+        return numberOfCorrectedErrors;
     }
 }

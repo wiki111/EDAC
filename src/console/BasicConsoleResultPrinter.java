@@ -42,13 +42,16 @@ public class BasicConsoleResultPrinter implements ConsoleResultPrinter{
         System.out.println(workingString);
 
         System.out.println("Disrupted bits control log : ");
-        Iterator it = simulation.getDisruptedBits().entrySet().iterator();
-        while (it.hasNext()){
-            Map.Entry entry = (Map.Entry) it.next();
-            for ( Integer bit : (ArrayList<Integer>) entry.getValue() ) {
-                System.out.println("Disrupted bit " + bit + " of byte " + entry.getKey());
+        if(simulation.getDisruptedBits() != null){
+            Iterator it = simulation.getDisruptedBits().entrySet().iterator();
+            while (it.hasNext()){
+                Map.Entry entry = (Map.Entry) it.next();
+                for ( Integer bit : (ArrayList<Integer>) entry.getValue() ) {
+                    System.out.println("Disrupted bit " + bit + " of byte " + entry.getKey());
+                }
             }
         }
+
 
         System.out.println("\n Decoded signal : ");
         workingString = "";

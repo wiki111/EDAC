@@ -1,32 +1,14 @@
 import algorithms.CyclicRedundancyCheck16Bit;
 import algorithms.EDACAlgorithm;
 import algorithms.EvenParityBitControl;
-import generators.DisruptionGenerator;
-import generators.SignalGenerator;
-import generators.Simple7BitSignalGenerator;
-import generators.SimpleDisruptionGenerator;
+import generators.*;
+import simulation.Simulation;
 import simulation.SimulationRunner;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        /*
-        EvenParityBitControl evenParityBitControl = new EvenParityBitControl();
-        evenParityBitControl.config(signal, 0.5f);
-        evenParityBitControl.runSimulation();
-        evenParityBitControl.printLogsToConsole();
-
-
-        CyclicRedundancyCheck16Bit crc16 = new CyclicRedundancyCheck16Bit();
-
-        byte[] dataForCrc16 = new byte[]{0x05};
-
-        crc16.computeCRCFor(dataForCrc16);
-
-        System.out.println(crc16.getCalculatedCRC());
-        System.out.println(String.format("0x%08X", crc16.getCalculatedCRC()));
-        */
         /*
         SignalGenerator signalGenerator = new Simple7BitSignalGenerator(3);
         DisruptionGenerator disruptionGenerator = new SimpleDisruptionGenerator();
@@ -36,9 +18,11 @@ public class Main {
         runner.runSimulation();
         */
 
-        SignalGenerator signalGenerator = new Simple7BitSignalGenerator(100);
-        CyclicRedundancyCheck16Bit crc16 = new CyclicRedundancyCheck16Bit();
-        crc16.decode(crc16.encode(signalGenerator.generateSignal()));
+        SignalGenerator signalGenerator = new Simple7BitSignalGenerator(2);
+        DisruptionGenerator disruptionGenerator = new BlankDisruptionGenerator();
+        EDACAlgorithm algorithm = new CyclicRedundancyCheck16Bit();
+        SimulationRunner runner = new SimulationRunner(algorithm, signalGenerator, disruptionGenerator);
+        runner.runSimulation();
 
     }
 }
