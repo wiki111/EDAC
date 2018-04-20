@@ -20,7 +20,7 @@ public class Main {
 
         SignalGenerator signalGenerator = new Simple7BitSignalGenerator(2);
         DisruptionGenerator disruptionGenerator = new BlankDisruptionGenerator();
-        EDACAlgorithm algorithm = new CyclicRedundancyCheck16Bit();
+        EDACAlgorithm algorithm = new CyclicRedundancyCheck16Bit("sdlc reverse");
         SimulationRunner runner = new SimulationRunner(algorithm, signalGenerator, disruptionGenerator);
         runner.runSimulation();
 

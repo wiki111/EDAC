@@ -2,8 +2,12 @@ package algorithms;
 
 public class CyclicRedundancyCheck16Bit implements EDACAlgorithm {
 
-    private static final int generator_polynomial = 0x00001021;
+    private int generator_polynomial;
+
     private static final String CRC16_ERROR = "[CRC16 DATA ERROR] The data is corrupted.";
+    private static final int crc16 = 0x00008005;
+    private static final int crcSDLC = 0x00001021;
+    private static final int crcSDLCReverse = 0x00008408;
 
     private int calculatedCRC;
     private int numberOfErrors = 0;
@@ -11,7 +15,22 @@ public class CyclicRedundancyCheck16Bit implements EDACAlgorithm {
     private int numberOfCorrectedErrors = 0;
     private int[] lookupTable;
 
-    public CyclicRedundancyCheck16Bit() {
+    public CyclicRedundancyCheck16Bit(String crctype) {
+        switch(crctype){
+            case "crc16" :
+                generator_polynomial = crc16;
+                break;
+            case "sdlc" :
+                generator_polynomial = crcSDLC;
+                break;
+            case "sdlc reverse" :
+                generator_polynomial = crcSDLCReverse;
+                break;
+            default :
+                generator_polynomial = crc16;
+                break;
+
+        }
         calculateLookupTable();
     }
 
