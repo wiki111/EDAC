@@ -1,4 +1,5 @@
 import algorithms.CyclicRedundancyCheck16Bit;
+import algorithms.CyclicRedundancyCheck32Bit;
 import algorithms.EDACAlgorithm;
 import algorithms.EvenParityBitControl;
 import generators.*;
@@ -20,7 +21,7 @@ public class Main {
 
         SignalGenerator signalGenerator = new Simple7BitSignalGenerator(2);
         DisruptionGenerator disruptionGenerator = new BlankDisruptionGenerator();
-        EDACAlgorithm algorithm = new CyclicRedundancyCheck16Bit("sdlc reverse");
+        EDACAlgorithm algorithm = new CyclicRedundancyCheck32Bit("crc32");
         SimulationRunner runner = new SimulationRunner(algorithm, signalGenerator, disruptionGenerator);
         runner.runSimulation();
 
