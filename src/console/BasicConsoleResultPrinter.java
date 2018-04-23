@@ -60,6 +60,24 @@ public class BasicConsoleResultPrinter implements ConsoleResultPrinter{
         }
         System.out.println(workingString);
 
+        boolean isDecodedTheSameAsInput = true;
+
+        int i = 0;
+
+        for (byte b : simulation.getInput()){
+            if(b != simulation.getDecoded()[i]){
+                isDecodedTheSameAsInput = false;
+            }
+            i++;
+        }
+
+        if(isDecodedTheSameAsInput){
+            System.out.println("[INFO] Decoded signal is the same as input.");
+        }else {
+            System.out.println("[WARNING] Decoded signal is NOT the same as input. (!!!)");
+        }
+
+
         System.out.println("\n Errors : ");
         System.out.println("Number of detected errors : " + simulation.getNumberOfErrorsDetected());
         System.out.println("Actual number of errors : " + simulation.getActualNumberOfErrors());
