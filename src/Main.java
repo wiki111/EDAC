@@ -1,6 +1,6 @@
 import algorithms.*;
 import generators.*;
-import simulation.Simulation;
+import simulation.ConsoleSimulationRunner;
 import simulation.SimulationRunner;
 
 public class Main {
@@ -26,12 +26,13 @@ public class Main {
 
         //Hamming Code test configuration
 
-        SignalGenerator signalGenerator = new Simple7BitSignalGenerator(100);
-        DisruptionGenerator disruptionGenerator = new BlankDisruptionGenerator();
+        SignalGenerator signalGenerator = new Simple7BitSignalGenerator(10);
+        DisruptionGenerator disruptionGenerator = new OneBitDisruptionGenerator();
         EDACAlgorithm algorithm = new HammingCode();
 
 
-        SimulationRunner runner = new SimulationRunner(algorithm, signalGenerator, disruptionGenerator);
+        //Running the simulation :
+        SimulationRunner runner = new ConsoleSimulationRunner(algorithm, signalGenerator, disruptionGenerator);
         runner.runSimulation();
 
     }

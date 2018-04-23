@@ -37,6 +37,8 @@ public class SimpleDisruptionGenerator implements DisruptionGenerator{
             }
         }
 
+        disruptedSignal = signal;
+
         return signal;
     }
 

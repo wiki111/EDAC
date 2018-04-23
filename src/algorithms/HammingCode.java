@@ -4,21 +4,32 @@ public class HammingCode implements EDACAlgorithm {
 
     private int encoded_data_length = 0;
     private int parity_bits_added = 0;
+    private byte[] inputData;
+    private byte[] encodedData;
+
+    private String errorLogs = "";
+    private int numberOfErrors = 0;
+    private int numberOfCorrectedErrors = 0;
+    private int errorPosition = -1;
+
+
 
     @Override
     public byte[] encode(byte[] data) {
+        inputData = data;
+        parity_bits_added = countNeededParityBits();
+        encoded_data_length = data.length * 8 + parity_bits_added;
+        encodedData = new byte[data.length + (int)Math.ceil(parity_bits_added / 8.0)];
+        rewriteDataWithAddedParityBits();
+        calculateAndInsertParityBitsValues();
+        return encodedData;
+    }
 
-        System.out.println("Input data : ");
-        for(byte b : data){
-            System.out.println(Integer.toBinaryString(b & 255 | 256).substring(1));
-        }
-
-        byte[] encodedData;
-
+    private int countNeededParityBits(){
         int counter = 0;
         int parity_counter = 0;
 
-        while(counter < (data.length * 8)){
+        while(counter < (inputData.length * 8)){
             if(Math.pow(2, parity_counter) == counter + parity_counter + 1) {
                 parity_counter ++;
             }else{
@@ -26,106 +37,92 @@ public class HammingCode implements EDACAlgorithm {
             }
         }
 
-        encoded_data_length = data.length * 8 + parity_counter;
-        parity_bits_added = parity_counter;
+        return parity_counter;
+    }
 
-        encodedData = new byte[data.length + (int)Math.ceil(parity_counter / 8.0)];
-
+    private void rewriteDataWithAddedParityBits(){
         int j = 0;
-        int dst_bit_counter = 0;
-        int src_bit_counter = 0;
-        int dst_byte_counter = 0;
-        int src_byte_counter = 0;
+
+        Counter destination = new Counter();
+        Counter source = new Counter();
 
         for(int i = 1; i <= encodedData.length * 8; i++){
             if(Math.pow(2, j) != i){
 
-                byte currentDestinationByte = encodedData[dst_byte_counter];
+                byte currentDestinationByte = encodedData[destination.currentByte()];
 
-                if(src_byte_counter < data.length){
-                    byte currentSourceByte = data[src_byte_counter];
+                if(source.currentByte() < inputData.length){
 
-                    if(((currentSourceByte >> src_bit_counter) & 1) == 1){
-                        currentDestinationByte = (byte) (currentDestinationByte | (1<<dst_bit_counter));
+                    byte currentSourceByte = inputData[source.currentByte()];
+
+                    if(isBitSet(currentSourceByte, source.currentBit())){
+                        currentDestinationByte = setBit(currentDestinationByte, destination.currentBit());
                     }else {
-                        currentDestinationByte = (byte) (currentDestinationByte & ~(1<<dst_bit_counter));
+                        currentDestinationByte = resetBit(currentDestinationByte, destination.currentBit());
                     }
                 }else{
-                    currentDestinationByte = (byte) (currentDestinationByte & ~(1<<dst_bit_counter));
+                    currentDestinationByte = resetBit(currentDestinationByte, destination.currentBit());
                 }
 
-                encodedData[dst_byte_counter] = currentDestinationByte;
+                encodedData[destination.currentByte()] = currentDestinationByte;
 
-                if(src_bit_counter < 7){
-                    src_bit_counter++;
-                }else{
-                    src_bit_counter = 0;
-                    src_byte_counter++;
-                }
+                source.nextBit();
 
             }else{
                 j++;
             }
 
-            if(dst_bit_counter < 7){
-                dst_bit_counter++;
-            }else{
-                dst_bit_counter = 0;
-                dst_byte_counter++;
-            }
+            destination.nextBit();
 
         }
-        System.out.println("Rewritten data : ");
-        for(byte b : encodedData){
-            System.out.println(Integer.toBinaryString(b & 255 | 256).substring(1));
+    }
+
+    private boolean isBitSet(byte sourceByte, int bitInByte){
+        if(((sourceByte >> bitInByte) & 1) == 1){
+            return true;
+        }else{
+            return false;
         }
+    }
+
+    private byte setBit(byte changedByte, int bitPosition){
+        return (byte) (changedByte | (1<<bitPosition));
+    }
+
+    private byte resetBit(byte changedByte, int bitPosition){
+        return (byte) (changedByte & ~(1<<bitPosition));
+    }
 
 
-        for(int i = 0; i < parity_counter; i++){
+    private void calculateAndInsertParityBitsValues(){
+        for(int i = 0; i < parity_bits_added; i++){
             boolean parity_bit_value = getParity(i, encodedData);
             int position = (int) Math.pow(2,i) - 1;
             int bit_position = position%8;
             int byte_position = (int)Math.floor(position/8);
             if(parity_bit_value){
-                encodedData[byte_position] |= (1<<(bit_position));
+                encodedData[byte_position] = setBit(encodedData[byte_position], bit_position);
             }else{
-                encodedData[byte_position] &= ~(1<<(bit_position));
+                encodedData[byte_position] = resetBit(encodedData[byte_position], bit_position);
             }
         }
-        System.out.println("Encoded data : ");
-        for(byte b : encodedData){
-            System.out.println(Integer.toBinaryString(b & 255 | 256).substring(1));
-        }
-
-        return encodedData;
     }
 
     private boolean getParity(int power, byte[] data){
-        boolean parity = false;
 
+        boolean parity = false;
         int parity_counter = 0;
-        int dst_bit_counter = 0;
-        int dst_byte_counter = 0;
+        Counter counter = new Counter();
 
         for(int i = 0; i < encoded_data_length; i++){
-            if(((i+1) & i) != 0) {
-                int k  = i + 1;
-                String s = Integer.toBinaryString(k);
-                int x = ((Integer.parseInt(s))/((int)Math.pow(10, power)))%10;
-                if(x == 1) {
-                    if(((data[dst_byte_counter] >> dst_bit_counter) & 1) == 1){
+            if(!isPowerOfTwo(i)) {
+                if(isPositionCovered(i, power)) {
+                    if(isBitSet(counter, data)){
                         parity_counter = (parity_counter + 1)%2;
                     }
                 }
             }
-
-            if(dst_bit_counter < 7){
-                dst_bit_counter ++;
-            }else{
-                dst_bit_counter = 0;
-                dst_byte_counter++;
-            }
-
+            counter.nextBit();
         }
 
         if(parity_counter == 1){
@@ -135,40 +132,80 @@ public class HammingCode implements EDACAlgorithm {
         return parity;
     }
 
+    private boolean isPowerOfTwo(int i){
+        if(((i+1) & i) == 0){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    private boolean isPositionCovered(int position, int power){
+        position++;
+        String s = Integer.toBinaryString(position);
+        int x = ((Integer.parseInt(s))/((int)Math.pow(10, power)))%10;
+        if(x == 1){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    private boolean isBitSet(Counter counter, byte[] data){
+        if(((data[counter.currentByte()] >> counter.currentBit()) & 1) == 1){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
     @Override
     public byte[] decode(byte[] data) {
+        int error_location = checkForErrors(data);
+        if(error_location != 0){
+            errorPosition = error_location;
+            errorLogs = "[ERROR] Detected error at position " + errorPosition;
+            numberOfErrors++;
+            data = getCorrectedData(data, error_location);
+        }
 
-        byte[] decodedData;
+        return getOriginalData(data, parity_bits_added);
+    }
 
+    private int checkForErrors(byte[] data){
         int[] parity = new int[parity_bits_added];
 
         String syndrome = new String();
 
-
-
         for(int power = 0; power < parity_bits_added; power++){
             for(int i = 0; i < encoded_data_length; i++){
-                int k = i + 1;
-                String s = Integer.toBinaryString(k);
-                int bit = ((Integer.parseInt(s))/((int)Math.pow(10, power)))%10;
-                if(bit == 1){
-                    int byte_counter = (int) Math.floor(i/8);
-                    int bit_counter = i%8;
-                    if(((data[byte_counter] >> bit_counter) & 1) == 1){
+                if(isPositionCovered(i ,power)){
+                    if(isBitSet(data, i)){
                         parity[power] = (parity[power] + 1)%2;
                     }
                 }
-
             }
             syndrome = parity[power] + syndrome;
         }
 
-        int error_location = Integer.parseInt(syndrome, 2);
-        if(error_location != 0){
-            data[(int) Math.floor((error_location-1)/8)] ^= (1 << ((error_location-1)%8));
-        }
+        return Integer.parseInt(syndrome, 2);
+    }
 
-        return getOriginalData(data, parity_bits_added);
+    private boolean isBitSet(byte[] data, int bit){
+        int bytePosition = (int)Math.floor(bit/8);
+        int bitPosition = bit%8;
+        if(((data[bytePosition] >> (bitPosition)) & 1) == 1){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    private byte[] getCorrectedData(byte[] data, int error_location){
+        data[(int) Math.floor((error_location-1)/8)] ^= (1 << ((error_location-1)%8));
+        errorLogs += "\n [INFO] Managed to correct error ! ";
+        numberOfCorrectedErrors++;
+        return data;
     }
 
     private byte[] getOriginalData(byte[] dataWithAppendedBits, int numberOfAppendedBits){
@@ -178,11 +215,9 @@ public class HammingCode implements EDACAlgorithm {
         int counter = 0;
 
         for(int i = 0; i < encoded_data_length; i++){
-            if(((i+1) & i) != 0){
-                if(((dataWithAppendedBits[(int)Math.floor(i/8)] >> (i%8)) & 1) == 1){
-                    int byte_position = (int) Math.floor(counter/8);
-                    int bit_position = counter%8;
-                    originalData[byte_position] |= (1 << bit_position);
+            if(!isPowerOfTwo(i)){
+                if(isBitSet(dataWithAppendedBits, i)){
+                    originalData = setBit(originalData, counter);
                 }
                 counter++;
             }
@@ -191,18 +226,50 @@ public class HammingCode implements EDACAlgorithm {
         return originalData;
     }
 
+    private byte[] setBit(byte[] data, int bit){
+        int byte_position = (int) Math.floor(bit/8);
+        int bit_position = bit%8;
+        data[byte_position] = (byte) (data[byte_position] | (1 << bit_position));
+        return data;
+    }
+
     @Override
     public String getErrors() {
-        return null;
+        return errorLogs;
     }
 
     @Override
     public int getErrorsCount() {
-        return 0;
+        return numberOfErrors;
     }
 
     @Override
     public int getCorrectedErrorsCount() {
-        return 0;
+        return numberOfCorrectedErrors;
     }
+
+    private class Counter{
+        private int byteCounter = 0;
+        private int bitCounter = 0;
+
+        public int currentByte(){
+            return byteCounter;
+        }
+
+        public int currentBit(){
+            return bitCounter;
+        }
+
+        public void nextBit(){
+            if(bitCounter < 7){
+                bitCounter++;
+            }else{
+                bitCounter = 0;
+                byteCounter++;
+            }
+        }
+    }
+
 }
+
+
