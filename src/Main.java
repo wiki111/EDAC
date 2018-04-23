@@ -19,11 +19,18 @@ public class Main {
         runner.runSimulation();
         */
 
+       /*
         SignalGenerator signalGenerator = new Simple7BitSignalGenerator(2);
         DisruptionGenerator disruptionGenerator = new BlankDisruptionGenerator();
         EDACAlgorithm algorithm = new CyclicRedundancyCheck32Bit("crc32");
         SimulationRunner runner = new SimulationRunner(algorithm, signalGenerator, disruptionGenerator);
         runner.runSimulation();
+        */
+
+       int k = 6;
+       String s = Integer.toBinaryString(k);
+       int y = Integer.parseInt(s);
+        int x = ((Integer.parseInt(s))/((int) Math.pow(10, 1)))%10;
 
     }
 }
