@@ -1,7 +1,4 @@
-import algorithms.*;
-import generators.*;
-import simulation.ConsoleSimulationRunner;
-import simulation.SimulationRunner;
+import graphic_interface.Panel;
 
 public class Main {
 
@@ -26,14 +23,20 @@ public class Main {
 
         //Hamming Code test configuration
 
-        SignalGenerator signalGenerator = new Simple7BitSignalGenerator(10);
+        /*SignalGenerator signalGenerator = new Simple7BitSignalGenerator(10);
         DisruptionGenerator disruptionGenerator = new OneBitDisruptionGenerator();
         EDACAlgorithm algorithm = new HammingCode();
 
 
         //Running the simulation :
         SimulationRunner runner = new ConsoleSimulationRunner(algorithm, signalGenerator, disruptionGenerator);
-        runner.runSimulation();
+        runner.runSimulation();*/
+
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Panel().setVisible(true);
+            }
+        });
 
     }
 }

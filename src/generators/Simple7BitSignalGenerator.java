@@ -7,6 +7,8 @@ public class Simple7BitSignalGenerator implements SignalGenerator{
     private byte[] generatedSignal;
     private int signalLength;
 
+    public Simple7BitSignalGenerator(){};
+
     public Simple7BitSignalGenerator(int signalLength) {
         this.signalLength = signalLength;
     }

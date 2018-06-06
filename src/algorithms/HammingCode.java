@@ -170,6 +170,7 @@ public class HammingCode implements EDACAlgorithm {
         }
 
         return getOriginalData(data, parity_bits_added);
+
     }
 
     private int checkForErrors(byte[] data){

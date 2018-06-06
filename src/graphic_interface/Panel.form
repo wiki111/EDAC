@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="GrupaMetody">
+    </Component>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[700, 550]"/>
+    </Property>
+    <Property name="resizable" type="boolean" value="false"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="MetodaDetekcjiKorekcji" alignment="1" min="-2" pref="680" max="-2" attributes="0"/>
+                  <Component id="NadawaneBity" alignment="1" min="-2" pref="680" max="-2" attributes="0"/>
+                  <Component id="OdbieraneBity" alignment="1" min="-2" pref="680" max="-2" attributes="0"/>
+                  <Component id="Ostatnie" alignment="0" min="-2" pref="680" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="MetodaDetekcjiKorekcji" min="-2" pref="50" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+              <Component id="NadawaneBity" min="-2" pref="140" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="OdbieraneBity" min="-2" pref="170" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="Ostatnie" min="-2" pref="130" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="MetodaDetekcjiKorekcji">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[700, 70]"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="Detekcji" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="521" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                  <Component id="Parzystosci" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="Hamminga" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="Crc16" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="Crc32" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="Sdlc" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="SDLCReverse" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <Component id="Detekcji" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="SDLCReverse" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Parzystosci" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Hamminga" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Crc16" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Crc32" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Sdlc" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="Detekcji">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Metoda Detekcji/Korekcji"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="Parzystosci">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Bit parzysto&#x15b;ci"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ParzystosciActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="Hamminga">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Kodowanie Hamminga"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="HammingaActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="SDLCReverse">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="SDLC Reverse"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="Crc16">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="CRC16"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="Sdlc">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="SDLC"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="Crc32">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="CRC32"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="NadawaneBity">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[700, 200]"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="BityNadawane" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="IloscGenerowanychBitow" min="-2" pref="50" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                              <Component id="Generuj" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="Koduj" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                      <Component id="BityZakodowan" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="BityNad" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="Bity" pref="572" max="32767" attributes="0"/>
+                                  <Component id="ZakodowaneNadawane" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="0" pref="25" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="BityNadawane" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="BityNad" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Bity" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="IloscGenerowanychBitow" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="Generuj" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Koduj" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="ZakodowaneNadawane" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="BityZakodowan" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="BityNadawane">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Bity Nadawane"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="BityNad">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Bity"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="Bity">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BityActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="Generuj">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="GENERUJ"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GenerujActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="Koduj">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="KODUJ"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="IloscGenerowanychBitow">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="" noResource="true"/>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[50, 30]"/>
+            </Property>
+            <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="16" type="code"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="BityZakodowan">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Zakodowane"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="ZakodowaneNadawane">
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="OdbieraneBity">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[700, 300]"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="BityOdbierane" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="SuroweOdbierane" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                  <Component id="Surowe" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="OdbieraneZakodowane" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="ZakodowaneOdbierane" min="-2" pref="569" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="IloscZaklocanychBitow" min="-2" pref="50" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Component id="Zakloc" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="Dekoduj" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="PoKorekcjiOdbierane" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="PoKorekcji" min="-2" pref="417" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="BityOdbierane" min="-2" pref="14" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="OdbieraneZakodowane" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ZakodowaneOdbierane" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="IloscZaklocanychBitow" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="Zakloc" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Dekoduj" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="PoKorekcji" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="PoKorekcjiOdbierane" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="SuroweOdbierane" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Surowe" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="30" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="BityOdbierane">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Bity Odbierane"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="OdbieraneZakodowane">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Zakodowane"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="ZakodowaneOdbierane">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ZakodowaneOdbieraneActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="IloscZaklocanychBitow">
+          <Properties>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[50, 30]"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="Zakloc">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="ZAK&#x141;&#xd3;&#x106;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="Dekoduj">
+          <Properties>
+            <Property name="label" type="java.lang.String" value="DEKODUJ"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PoKorekcjiOdbierane">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Zakodowane po korekcji"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="SuroweOdbierane">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Surowe"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="PoKorekcji">
+        </Component>
+        <Component class="javax.swing.JTextField" name="Surowe">
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="Ostatnie">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[700, 150]"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="Podsumowanie" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="BledyWykryte" min="-2" max="-2" attributes="0"/>
+                      <Component id="PrzeslaneBityDanych" min="-2" max="-2" attributes="0"/>
+                      <Component id="PrzeslaneBityNadmiarowe" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="PrzeslaneBity" pref="41" max="32767" attributes="0"/>
+                      <Component id="WykryteBledy" max="32767" attributes="0"/>
+                      <Component id="BityNadmiarowe" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="BledySkorygowane" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="BledyNiewykryte" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="SkorygowaneBledy" pref="41" max="32767" attributes="0"/>
+                              <Component id="NiewykryteBledy" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="287" max="32767" attributes="0"/>
+                          <Component id="Wyczysc" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="Podsumowanie" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="PrzeslaneBityDanych" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="PrzeslaneBity" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="BledySkorygowane" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="SkorygowaneBledy" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="BledyWykryte" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="WykryteBledy" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="BledyNiewykryte" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="NiewykryteBledy" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="PrzeslaneBityNadmiarowe" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="BityNadmiarowe" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Wyczysc" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="0" pref="30" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="Podsumowanie">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Podsumowanie"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PrzeslaneBityDanych">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Przes&#x142;ane bity danych"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="BledyWykryte">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="B&#x142;&#x119;dy wykryte"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PrzeslaneBityNadmiarowe">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Przes&#x142;ane bity nadmiarowe"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="BledySkorygowane">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="B&#x142;&#x119;dy skorygowane"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="BledyNiewykryte">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="B&#x142;&#x119;dy niewykryte"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="Wyczysc">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="WYCZY&#x15a;&#x106;"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="WyczyscActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="PrzeslaneBity">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PrzeslaneBityActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="WykryteBledy">
+        </Component>
+        <Component class="javax.swing.JTextField" name="BityNadmiarowe">
+        </Component>
+        <Component class="javax.swing.JTextField" name="SkorygowaneBledy">
+        </Component>
+        <Component class="javax.swing.JTextField" name="NiewykryteBledy">
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
