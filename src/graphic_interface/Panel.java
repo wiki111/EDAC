@@ -1,693 +1,530 @@
 package graphic_interface;
 
-import algorithms.*;
-import generators.*;
+import simulation.GuiSimulationRunner;
 
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Panel extends javax.swing.JFrame {
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    //Panel wyboru rodzaju detekcji/korekcji
+    private javax.swing.JPanel MetodaDetekcjiKorekcjiPanel;
+    private javax.swing.JLabel DetekcjaLabel;
+    private javax.swing.ButtonGroup MetodyButtonGroup;
+    private javax.swing.JRadioButton Crc16Radio;
+    private javax.swing.JRadioButton Crc32Radio;
+    private javax.swing.JRadioButton HammingRadio;
+    private javax.swing.JRadioButton ParzystosciRadio;
+    private javax.swing.JRadioButton SdlcReverseRadio;
+    private javax.swing.JRadioButton SdlcRadio;
+    //Panel nadawania - kodowanie i generacja sygnału wejściowego
+    private javax.swing.JPanel NadawaneBityPanel;
+    private javax.swing.JLabel BityNadawanePanelLabel;
+    private javax.swing.JLabel BityNadawaneTextFieldLabel;
+    private javax.swing.JTextField BityTextField;
+    private javax.swing.JSpinner IloscGenerowanychBitowSpinner;
+    private javax.swing.JButton GenerujButton;
+    private javax.swing.JButton KodujButton;
+    private javax.swing.JLabel ZakodowaneLabel;
+    private javax.swing.JTextField ZakodowaneTextField;
+    //Panel odbierania / zakłócania
+    private javax.swing.JPanel BityOdbieranePanel;
+    private javax.swing.JLabel BityOdbieraneLabel;
+    private javax.swing.JLabel ZakloconeLabel;
+    private javax.swing.JTextField ZakloconeTextField;
+    private javax.swing.JSpinner IloscZaklocanychBitowSpinner;
+    private javax.swing.JButton ZaklocButton;
+    private javax.swing.JButton DekodujButton;
+    private javax.swing.JLabel OdkodowaneLabel;
+    private javax.swing.JTextField OdkodowaneTextField;
+    //Panel podsumowanie
+    private javax.swing.JPanel PodsumowaniePanel;
+    private javax.swing.JLabel PodsumowanieLabel;
+    private javax.swing.JLabel PrzeslaneBityDanychLabel;
+    private javax.swing.JTextField PrzeslaneBityTextField;
+    private javax.swing.JLabel PrzeslaneBityNadmiaroweLabel;
+    private javax.swing.JLabel BledyWykryteLabel;
+    private javax.swing.JTextField WykryteBledyTextField;
+    private javax.swing.JTextField BityNadmiaroweTextField;
+    private javax.swing.JLabel BledySkorygowaneLabel;
+    private javax.swing.JTextField SkorygowaneBledyTextField;
+    private javax.swing.JLabel BledyNiewykryteLabel;
+    private javax.swing.JTextField NiewykryteBledyTextField;
+    private javax.swing.JButton WyczyscButton;
+    // End of variables declaration//GEN-END:variables
+
+    private GuiSimulationRunner simulationRunner;
+
     public Panel() {
-
-        this.signalGenerator = new Simple7BitSignalGenerator();
-        this.disruptionGenerator = new BitDisruptionGenerator();
-
         initComponents();
-        initListeners();
         addMethodGroupButtons();
+        this.simulationRunner = new GuiSimulationRunner();
+        simulationRunner.setAlgorithm("hamming");
     }
 
     private void addMethodGroupButtons(){
-        GrupaMetody.add(Parzystosci);
-        GrupaMetody.add(Hamminga);
-        GrupaMetody.add(SDLCReverse);
-        GrupaMetody.add(Crc16);
-        GrupaMetody.add(Sdlc);
-        GrupaMetody.add(Crc32);
+        MetodyButtonGroup.add(ParzystosciRadio);
+        MetodyButtonGroup.add(HammingRadio);
+        MetodyButtonGroup.add(SdlcReverseRadio);
+        MetodyButtonGroup.add(Crc16Radio);
+        MetodyButtonGroup.add(SdlcRadio);
+        MetodyButtonGroup.add(Crc32Radio);
     }
 
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        GrupaMetody = new javax.swing.ButtonGroup();
-        MetodaDetekcjiKorekcji = new javax.swing.JPanel();
-        Detekcji = new javax.swing.JLabel();
-        Parzystosci = new javax.swing.JRadioButton();
-        Hamminga = new javax.swing.JRadioButton();
-        SDLCReverse = new javax.swing.JRadioButton();
-        Crc16 = new javax.swing.JRadioButton();
-        Sdlc = new javax.swing.JRadioButton();
-        Crc32 = new javax.swing.JRadioButton();
-        NadawaneBity = new javax.swing.JPanel();
-        BityNadawane = new javax.swing.JLabel();
-        BityNad = new javax.swing.JLabel();
-        Bity = new javax.swing.JTextField();
-        Generuj = new javax.swing.JButton();
-        Koduj = new javax.swing.JButton();
-        IloscGenerowanychBitow = new javax.swing.JSpinner();
-        BityZakodowan = new javax.swing.JLabel();
-        ZakodowaneNadawane = new javax.swing.JTextField();
-        OdbieraneBity = new javax.swing.JPanel();
-        BityOdbierane = new javax.swing.JLabel();
-        ZakloconeLabel = new javax.swing.JLabel();
-        Zaklocone = new javax.swing.JTextField();
-        IloscZaklocanychBitow = new javax.swing.JSpinner();
-        Zakloc = new javax.swing.JButton();
-        Dekoduj = new javax.swing.JButton();
-        OdkodowaneSuroweLabel = new javax.swing.JLabel();
-        OdkodowaneKorekcjaLabel = new javax.swing.JLabel();
-        OdkodowaneSurowe = new javax.swing.JTextField();
-        OdkodowaneKorekcja = new javax.swing.JTextField();
-        Ostatnie = new javax.swing.JPanel();
-        Podsumowanie = new javax.swing.JLabel();
-        PrzeslaneBityDanych = new javax.swing.JLabel();
-        BledyWykryte = new javax.swing.JLabel();
-        PrzeslaneBityNadmiarowe = new javax.swing.JLabel();
-        BledySkorygowane = new javax.swing.JLabel();
-        BledyNiewykryte = new javax.swing.JLabel();
-        Wyczysc = new javax.swing.JButton();
-        PrzeslaneBity = new javax.swing.JTextField();
-        WykryteBledy = new javax.swing.JTextField();
-        BityNadmiarowe = new javax.swing.JTextField();
-        SkorygowaneBledy = new javax.swing.JTextField();
-        NiewykryteBledy = new javax.swing.JTextField();
+        initObjects();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(700, 550));
+        setPreferredSize(new java.awt.Dimension(900, 550));
         setResizable(false);
 
-        MetodaDetekcjiKorekcji.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        MetodaDetekcjiKorekcji.setPreferredSize(new java.awt.Dimension(700, 70));
+        initMetodaPanel();
+        initNadawanePanel();
+        initOdbieranePanel();
+        initPodsumowaniePanel();
+        initLayout();
 
-        Detekcji.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Detekcji.setText("Metoda Detekcji/Korekcji");
+        pack();
+    }
 
-        Parzystosci.setText("Bit parzystości");
-        Parzystosci.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ParzystosciActionPerformed(evt);
-            }
-        });
+    private void initObjects(){
+        MetodyButtonGroup = new javax.swing.ButtonGroup();
+        MetodaDetekcjiKorekcjiPanel = new javax.swing.JPanel();
+        DetekcjaLabel = new javax.swing.JLabel();
+        ParzystosciRadio = new javax.swing.JRadioButton();
+        HammingRadio = new javax.swing.JRadioButton();
+        SdlcReverseRadio = new javax.swing.JRadioButton();
+        Crc16Radio = new javax.swing.JRadioButton();
+        SdlcRadio = new javax.swing.JRadioButton();
+        Crc32Radio = new javax.swing.JRadioButton();
+        NadawaneBityPanel = new javax.swing.JPanel();
+        BityNadawanePanelLabel = new javax.swing.JLabel();
+        BityNadawaneTextFieldLabel = new javax.swing.JLabel();
+        BityTextField = new javax.swing.JTextField();
+        GenerujButton = new javax.swing.JButton();
+        KodujButton = new javax.swing.JButton();
+        IloscGenerowanychBitowSpinner = new javax.swing.JSpinner();
+        ZakodowaneLabel = new javax.swing.JLabel();
+        ZakodowaneTextField = new javax.swing.JTextField();
+        BityOdbieranePanel = new javax.swing.JPanel();
+        BityOdbieraneLabel = new javax.swing.JLabel();
+        ZakloconeLabel = new javax.swing.JLabel();
+        ZakloconeTextField = new javax.swing.JTextField();
+        IloscZaklocanychBitowSpinner = new javax.swing.JSpinner();
+        ZaklocButton = new javax.swing.JButton();
+        DekodujButton = new javax.swing.JButton();
+        OdkodowaneLabel = new javax.swing.JLabel();
+        OdkodowaneTextField = new javax.swing.JTextField();
+        PodsumowaniePanel = new javax.swing.JPanel();
+        PodsumowanieLabel = new javax.swing.JLabel();
+        PrzeslaneBityDanychLabel = new javax.swing.JLabel();
+        BledyWykryteLabel = new javax.swing.JLabel();
+        PrzeslaneBityNadmiaroweLabel = new javax.swing.JLabel();
+        BledySkorygowaneLabel = new javax.swing.JLabel();
+        BledyNiewykryteLabel = new javax.swing.JLabel();
+        WyczyscButton = new javax.swing.JButton();
+        PrzeslaneBityTextField = new javax.swing.JTextField();
+        WykryteBledyTextField = new javax.swing.JTextField();
+        BityNadmiaroweTextField = new javax.swing.JTextField();
+        SkorygowaneBledyTextField = new javax.swing.JTextField();
+        NiewykryteBledyTextField = new javax.swing.JTextField();
+    }
 
-        Hamminga.setText("Kodowanie Hamminga");
-        Hamminga.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HammingaActionPerformed(evt);
-            }
-        });
+    private void initMetodaPanel() {
+        MetodaDetekcjiKorekcjiPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        MetodaDetekcjiKorekcjiPanel.setPreferredSize(new java.awt.Dimension(900, 70));
 
-        SDLCReverse.setText("SDLC Reverse");
+        DetekcjaLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        DetekcjaLabel.setText("Metoda DetekcjaLabel/Korekcji");
 
-        Crc16.setText("CRC16");
+        SdlcReverseRadio.setText("SDLC Reverse");
+        Crc16Radio.setText("CRC16");
+        SdlcRadio.setText("SDLC");
+        Crc32Radio.setText("CRC32");
+        HammingRadio.setText("Kodowanie Hamminga");
+        ParzystosciRadio.setText("Kontrola Parzystości");
 
-        Sdlc.setText("SDLC");
+        HammingRadio.setSelected(true);
 
-        Crc32.setText("CRC32");
+        initMetodaRadioListeners();
 
-        javax.swing.GroupLayout MetodaDetekcjiKorekcjiLayout = new javax.swing.GroupLayout(MetodaDetekcjiKorekcji);
-        MetodaDetekcjiKorekcji.setLayout(MetodaDetekcjiKorekcjiLayout);
+        javax.swing.GroupLayout MetodaDetekcjiKorekcjiLayout = new javax.swing.GroupLayout(MetodaDetekcjiKorekcjiPanel);
+        MetodaDetekcjiKorekcjiPanel.setLayout(MetodaDetekcjiKorekcjiLayout);
         MetodaDetekcjiKorekcjiLayout.setHorizontalGroup(
-            MetodaDetekcjiKorekcjiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MetodaDetekcjiKorekcjiLayout.createSequentialGroup()
-                .addComponent(Detekcji)
-                .addContainerGap(521, Short.MAX_VALUE))
-            .addGroup(MetodaDetekcjiKorekcjiLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(Parzystosci)
-                .addGap(18, 18, 18)
-                .addComponent(Hamminga)
-                .addGap(18, 18, 18)
-                .addComponent(Crc16)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Crc32)
-                .addGap(35, 35, 35)
-                .addComponent(Sdlc)
-                .addGap(30, 30, 30)
-                .addComponent(SDLCReverse)
-                .addGap(53, 53, 53))
+                MetodaDetekcjiKorekcjiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                        .addGroup(MetodaDetekcjiKorekcjiLayout.createSequentialGroup()
+                                .addComponent(DetekcjaLabel)
+                                .addContainerGap(521, Short.MAX_VALUE))
+                        .addGroup(MetodaDetekcjiKorekcjiLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(ParzystosciRadio)
+                                .addGap(18, 18, 18)
+                                .addComponent(HammingRadio)
+                                .addGap(18, 18, 18)
+                                .addComponent(Crc16Radio)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Crc32Radio)
+                                .addGap(35, 35, 35)
+                                .addComponent(SdlcRadio)
+                                .addGap(30, 30, 30)
+                                .addComponent(SdlcReverseRadio)
+                                .addGap(53, 53, 53))
         );
         MetodaDetekcjiKorekcjiLayout.setVerticalGroup(
-            MetodaDetekcjiKorekcjiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MetodaDetekcjiKorekcjiLayout.createSequentialGroup()
-                .addComponent(Detekcji)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(MetodaDetekcjiKorekcjiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SDLCReverse)
-                    .addComponent(Parzystosci)
-                    .addComponent(Hamminga)
-                    .addComponent(Crc16)
-                    .addComponent(Crc32)
-                    .addComponent(Sdlc))
-                .addContainerGap())
+                MetodaDetekcjiKorekcjiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                        .addGroup(javax.swing.GroupLayout.Alignment.CENTER, MetodaDetekcjiKorekcjiLayout.createSequentialGroup()
+                                .addComponent(DetekcjaLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(MetodaDetekcjiKorekcjiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(SdlcReverseRadio)
+                                        .addComponent(ParzystosciRadio)
+                                        .addComponent(HammingRadio)
+                                        .addComponent(Crc16Radio)
+                                        .addComponent(Crc32Radio)
+                                        .addComponent(SdlcRadio))
+                                .addContainerGap())
         );
+    }
 
-        NadawaneBity.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        NadawaneBity.setPreferredSize(new java.awt.Dimension(700, 200));
+    private void initMetodaRadioListeners() {
 
-        BityNadawane.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        BityNadawane.setText("Bity Nadawane");
+        SdlcRadio.addActionListener(e -> simulationRunner.setAlgorithm("sdlc"));
 
-        BityNad.setText("Bity");
+        SdlcReverseRadio.addActionListener(e -> simulationRunner.setAlgorithm("sdlc reverse"));
 
-        Bity.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BityActionPerformed(evt);
-            }
-        });
+        Crc16Radio.addActionListener(e -> simulationRunner.setAlgorithm("crc16"));
 
-        Generuj.setText("GENERUJ");
-        Generuj.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GenerujActionPerformed(evt);
-            }
-        });
+        Crc32Radio.addActionListener(e -> simulationRunner.setAlgorithm("crc32"));
 
-        Koduj.setText("KODUJ");
+        ParzystosciRadio.addActionListener(e -> simulationRunner.setAlgorithm("parity"));
 
-        IloscGenerowanychBitow.setName(""); // NOI18N
-        IloscGenerowanychBitow.setPreferredSize(new java.awt.Dimension(50, 30));
-        IloscGenerowanychBitow.setValue(16);
+        HammingRadio.addActionListener(e -> simulationRunner.setAlgorithm("hamming"));
 
-        BityZakodowan.setText("Zakodowane");
+    }
 
-        javax.swing.GroupLayout NadawaneBityLayout = new javax.swing.GroupLayout(NadawaneBity);
-        NadawaneBity.setLayout(NadawaneBityLayout);
+    private void initNadawanePanel() {
+        NadawaneBityPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        NadawaneBityPanel.setPreferredSize(new java.awt.Dimension(900, 200));
+
+        BityNadawanePanelLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BityNadawanePanelLabel.setText("Bity Nadawane");
+
+        IloscGenerowanychBitowSpinner.setName("");
+        IloscGenerowanychBitowSpinner.setPreferredSize(new java.awt.Dimension(50, 30));
+        IloscGenerowanychBitowSpinner.setValue(1);
+
+        BityNadawaneTextFieldLabel.setText("Bity");
+
+        ZakodowaneLabel.setText("Zakodowane");
+
+        GenerujButton.setText("GENERUJ");
+        initGenerujButtonListener();
+
+        KodujButton.setText("KODUJ");
+        initKodujButtonListener();
+
+        javax.swing.GroupLayout NadawaneBityLayout = new javax.swing.GroupLayout(NadawaneBityPanel);
+        NadawaneBityPanel.setLayout(NadawaneBityLayout);
         NadawaneBityLayout.setHorizontalGroup(
-            NadawaneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(NadawaneBityLayout.createSequentialGroup()
-                .addGroup(NadawaneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BityNadawane)
-                    .addGroup(NadawaneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                NadawaneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(NadawaneBityLayout.createSequentialGroup()
-                            .addComponent(IloscGenerowanychBitow, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(43, 43, 43)
-                            .addComponent(Generuj)
-                            .addGap(26, 26, 26)
-                            .addComponent(Koduj))
-                        .addGroup(NadawaneBityLayout.createSequentialGroup()
-                            .addGroup(NadawaneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(NadawaneBityLayout.createSequentialGroup()
-                                    .addGap(14, 14, 14)
-                                    .addComponent(BityZakodowan))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, NadawaneBityLayout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(BityNad)))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(NadawaneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(Bity, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE)
-                                .addComponent(ZakodowaneNadawane)))))
-                .addGap(0, 25, Short.MAX_VALUE))
+                                .addGroup(NadawaneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(BityNadawanePanelLabel)
+                                        .addGroup(NadawaneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addGroup(NadawaneBityLayout.createSequentialGroup()
+                                                        .addComponent(IloscGenerowanychBitowSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(43, 43, 43)
+                                                        .addComponent(GenerujButton)
+                                                        .addGap(26, 26, 26)
+                                                        .addComponent(KodujButton))
+                                                .addGroup(NadawaneBityLayout.createSequentialGroup()
+                                                        .addGroup(NadawaneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addGroup(NadawaneBityLayout.createSequentialGroup()
+                                                                        .addGap(14, 14, 14)
+                                                                        .addComponent(ZakodowaneLabel))
+                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, NadawaneBityLayout.createSequentialGroup()
+                                                                        .addContainerGap()
+                                                                        .addComponent(BityNadawaneTextFieldLabel)))
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addGroup(NadawaneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                .addComponent(BityTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE)
+                                                                .addComponent(ZakodowaneTextField)))))
+                                .addGap(0, 25, Short.MAX_VALUE))
         );
         NadawaneBityLayout.setVerticalGroup(
-            NadawaneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(NadawaneBityLayout.createSequentialGroup()
-                .addComponent(BityNadawane)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(NadawaneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BityNad)
-                    .addComponent(Bity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(NadawaneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(IloscGenerowanychBitow, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Generuj)
-                    .addComponent(Koduj))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(NadawaneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ZakodowaneNadawane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BityZakodowan))
-                .addGap(28, 28, 28))
+                NadawaneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(NadawaneBityLayout.createSequentialGroup()
+                                .addComponent(BityNadawanePanelLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(NadawaneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(BityNadawaneTextFieldLabel)
+                                        .addComponent(BityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(NadawaneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(IloscGenerowanychBitowSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(GenerujButton)
+                                        .addComponent(KodujButton))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(NadawaneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(ZakodowaneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(ZakodowaneLabel))
+                                .addGap(28, 28, 28))
         );
+    }
 
-        OdbieraneBity.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        OdbieraneBity.setPreferredSize(new java.awt.Dimension(700, 300));
-
-        BityOdbierane.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        BityOdbierane.setText("Bity Odbierane");
-
-        ZakloconeLabel.setText("Zakłócone");
-
-        Zaklocone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ZakodowaneOdbieraneActionPerformed(evt);
+    private void initGenerujButtonListener() {
+        GenerujButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                BityTextField.setText(
+                        simulationRunner.generate(Integer.parseInt(
+                                IloscGenerowanychBitowSpinner
+                                        .getValue()
+                                        .toString()
+                        )));
             }
         });
 
-        IloscZaklocanychBitow.setPreferredSize(new java.awt.Dimension(50, 30));
+    }
 
-        Zakloc.setLabel("ZAKŁÓĆ");
+    private void initKodujButtonListener() {
+        KodujButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                simulationRunner.encode(BityTextField.getText());
+                ZakodowaneTextField.setText(simulationRunner.getEncoded());
+            }
+        });
+    }
 
-        Dekoduj.setLabel("DEKODUJ");
+    private void initOdbieranePanel() {
+        BityOdbieranePanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BityOdbieranePanel.setPreferredSize(new java.awt.Dimension(900, 300));
 
-        OdkodowaneSuroweLabel.setText("Odkodowane - surowe");
+        BityOdbieraneLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BityOdbieraneLabel.setText("Bity Odbierane");
+        ZakloconeLabel.setText("Zakłócone");
+        IloscZaklocanychBitowSpinner.setPreferredSize(new java.awt.Dimension(50, 30));
 
-        OdkodowaneKorekcjaLabel.setText("Odkodowane - po korekcji");
+        ZaklocButton.setText("ZAKŁÓĆ");
+        initZaklocButtonListener();
 
-        javax.swing.GroupLayout OdbieraneBityLayout = new javax.swing.GroupLayout(OdbieraneBity);
-        OdbieraneBity.setLayout(OdbieraneBityLayout);
+        DekodujButton.setText("DEKODUJ");
+        initDekodujButtonListener();
+
+        OdkodowaneLabel.setText("Odkodowane");
+
+        javax.swing.GroupLayout OdbieraneBityLayout = new javax.swing.GroupLayout(BityOdbieranePanel);
+        BityOdbieranePanel.setLayout(OdbieraneBityLayout);
         OdbieraneBityLayout.setHorizontalGroup(
-            OdbieraneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(OdbieraneBityLayout.createSequentialGroup()
-                .addComponent(BityOdbierane)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OdbieraneBityLayout.createSequentialGroup()
-                .addGroup(OdbieraneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, OdbieraneBityLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addGroup(OdbieraneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(OdbieraneBityLayout.createSequentialGroup()
-                                .addComponent(OdkodowaneKorekcjaLabel)
-                                .addGap(29, 29, 29)
-                                .addComponent(OdkodowaneKorekcja))
-                            .addGroup(OdbieraneBityLayout.createSequentialGroup()
-                                .addComponent(ZakloconeLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Zaklocone, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(OdbieraneBityLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(OdbieraneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OdbieraneBityLayout.createSequentialGroup()
-                                .addComponent(IloscZaklocanychBitow, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(35, 35, 35)
-                                .addComponent(Zakloc)
-                                .addGap(18, 18, 18)
-                                .addComponent(Dekoduj))
-                            .addGroup(OdbieraneBityLayout.createSequentialGroup()
-                                .addComponent(OdkodowaneSuroweLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(OdkodowaneSurowe, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(26, 26, 26))
+                OdbieraneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                        .addGroup(OdbieraneBityLayout.createSequentialGroup()
+                                .addComponent(BityOdbieraneLabel)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OdbieraneBityLayout.createSequentialGroup()
+                                .addGroup(OdbieraneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, OdbieraneBityLayout.createSequentialGroup()
+                                                .addGap(16, 16, 16)
+                                                .addGroup(OdbieraneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(OdbieraneBityLayout.createSequentialGroup()
+                                                                .addComponent(OdkodowaneLabel)
+                                                                .addGap(29, 29, 29)
+                                                                .addComponent(OdkodowaneTextField))
+                                                        .addGroup(OdbieraneBityLayout.createSequentialGroup()
+                                                                .addComponent(ZakloconeLabel)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(ZakloconeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGroup(OdbieraneBityLayout.createSequentialGroup()
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addGroup(OdbieraneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OdbieraneBityLayout.createSequentialGroup()
+                                                                .addComponent(IloscZaklocanychBitowSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(35, 35, 35)
+                                                                .addComponent(ZaklocButton)
+                                                                .addGap(18, 18, 18)
+                                                                .addComponent(DekodujButton)))))
+                                .addGap(26, 26, 26))
         );
         OdbieraneBityLayout.setVerticalGroup(
-            OdbieraneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(OdbieraneBityLayout.createSequentialGroup()
-                .addComponent(BityOdbierane, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(OdbieraneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ZakloconeLabel)
-                    .addComponent(Zaklocone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(OdbieraneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(IloscZaklocanychBitow, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Zakloc)
-                    .addComponent(Dekoduj))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(OdbieraneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(OdkodowaneSurowe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(OdkodowaneSuroweLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(OdbieraneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(OdkodowaneKorekcjaLabel)
-                    .addComponent(OdkodowaneKorekcja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                OdbieraneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(OdbieraneBityLayout.createSequentialGroup()
+                                .addComponent(BityOdbieraneLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(OdbieraneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(ZakloconeLabel)
+                                        .addComponent(ZakloconeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(OdbieraneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(IloscZaklocanychBitowSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(ZaklocButton)
+                                        .addComponent(DekodujButton))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(OdbieraneBityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(OdkodowaneLabel)
+                                        .addComponent(OdkodowaneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(30, Short.MAX_VALUE))
         );
+    }
 
-        Ostatnie.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Ostatnie.setPreferredSize(new java.awt.Dimension(700, 150));
+    private void initDekodujButtonListener() {
+        DekodujButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(ZakloconeTextField.getText().isEmpty()){
+                    simulationRunner.decode(ZakodowaneTextField.getText());
+                }else{
+                    simulationRunner.decode(ZakloconeTextField.getText());
+                }
 
-        Podsumowanie.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Podsumowanie.setText("Podsumowanie");
-
-        PrzeslaneBityDanych.setText("Przesłane bity danych");
-
-        BledyWykryte.setText("Błędy wykryte");
-
-        PrzeslaneBityNadmiarowe.setText("Przesłane bity nadmiarowe");
-
-        BledySkorygowane.setText("Błędy skorygowane");
-
-        BledyNiewykryte.setText("Błędy niewykryte");
-
-        Wyczysc.setText("WYCZYŚĆ");
-        Wyczysc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                WyczyscActionPerformed(evt);
+                OdkodowaneTextField.setText(simulationRunner.getDecoded());
+                PrzeslaneBityTextField.setText(simulationRunner.getNumberOfEncodedBits());
+                WykryteBledyTextField.setText(simulationRunner.getNumberOfDetectedErrors());
+                BityNadmiaroweTextField.setText(simulationRunner.getRedundantBitsNumber());
+                SkorygowaneBledyTextField.setText(simulationRunner.getNumberOfCorrectedErrors());
+                NiewykryteBledyTextField.setText(simulationRunner.getNumberOfUndetectedErrors());
             }
         });
 
-        PrzeslaneBity.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PrzeslaneBityActionPerformed(evt);
+    }
+
+    private void initZaklocButtonListener() {
+        ZaklocButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                simulationRunner.disrupt(
+                        ZakodowaneTextField.getText(),
+                        Integer.parseInt(IloscZaklocanychBitowSpinner.getValue().toString())
+                );
+                ZakloconeTextField.setText(simulationRunner.getDisrupted());
             }
         });
+    }
 
-        javax.swing.GroupLayout OstatnieLayout = new javax.swing.GroupLayout(Ostatnie);
-        Ostatnie.setLayout(OstatnieLayout);
+    private void initPodsumowaniePanel() {
+        PodsumowaniePanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        PodsumowaniePanel.setPreferredSize(new java.awt.Dimension(900, 150));
+
+        PodsumowanieLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        PodsumowanieLabel.setText("Podsumowanie");
+
+        PrzeslaneBityDanychLabel.setText("Przesłane bity danych");
+        BledyWykryteLabel.setText("Błędy wykryte");
+        PrzeslaneBityNadmiaroweLabel.setText("Przesłane bity nadmiarowe");
+        BledySkorygowaneLabel.setText("Błędy skorygowane");
+        BledyNiewykryteLabel.setText("Błędy niewykryte");
+
+        WyczyscButton.setText("WYCZYŚĆ I RESETUJ");
+        initWyczyscButtonListener();
+
+        javax.swing.GroupLayout OstatnieLayout = new javax.swing.GroupLayout(PodsumowaniePanel);
+        PodsumowaniePanel.setLayout(OstatnieLayout);
         OstatnieLayout.setHorizontalGroup(
             OstatnieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(OstatnieLayout.createSequentialGroup()
-                .addComponent(Podsumowanie)
+                .addComponent(PodsumowanieLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(OstatnieLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addGroup(OstatnieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BledyWykryte)
-                    .addComponent(PrzeslaneBityDanych)
-                    .addComponent(PrzeslaneBityNadmiarowe))
+                    .addComponent(BledyWykryteLabel)
+                    .addComponent(PrzeslaneBityDanychLabel)
+                    .addComponent(PrzeslaneBityNadmiaroweLabel))
                 .addGap(13, 13, 13)
                 .addGroup(OstatnieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(PrzeslaneBity, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-                    .addComponent(WykryteBledy)
-                    .addComponent(BityNadmiarowe))
+                    .addComponent(PrzeslaneBityTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                    .addComponent(WykryteBledyTextField)
+                    .addComponent(BityNadmiaroweTextField))
                 .addGap(18, 18, 18)
                 .addGroup(OstatnieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(OstatnieLayout.createSequentialGroup()
                         .addGroup(OstatnieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BledySkorygowane)
-                            .addComponent(BledyNiewykryte))
+                            .addComponent(BledySkorygowaneLabel)
+                            .addComponent(BledyNiewykryteLabel))
                         .addGap(18, 18, 18)
                         .addGroup(OstatnieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(SkorygowaneBledy, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-                            .addComponent(NiewykryteBledy))
+                            .addComponent(SkorygowaneBledyTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                            .addComponent(NiewykryteBledyTextField))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OstatnieLayout.createSequentialGroup()
                         .addGap(0, 287, Short.MAX_VALUE)
-                        .addComponent(Wyczysc)
+                        .addComponent(WyczyscButton)
                         .addGap(57, 57, 57))))
         );
         OstatnieLayout.setVerticalGroup(
             OstatnieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(OstatnieLayout.createSequentialGroup()
-                .addComponent(Podsumowanie)
+                .addComponent(PodsumowanieLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(OstatnieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PrzeslaneBityDanych)
-                    .addComponent(PrzeslaneBity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BledySkorygowane)
-                    .addComponent(SkorygowaneBledy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PrzeslaneBityDanychLabel)
+                    .addComponent(PrzeslaneBityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BledySkorygowaneLabel)
+                    .addComponent(SkorygowaneBledyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(OstatnieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BledyWykryte)
-                    .addComponent(WykryteBledy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BledyNiewykryte)
-                    .addComponent(NiewykryteBledy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BledyWykryteLabel)
+                    .addComponent(WykryteBledyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BledyNiewykryteLabel)
+                    .addComponent(NiewykryteBledyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(OstatnieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PrzeslaneBityNadmiarowe)
-                    .addComponent(BityNadmiarowe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Wyczysc))
+                    .addComponent(PrzeslaneBityNadmiaroweLabel)
+                    .addComponent(BityNadmiaroweTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(WyczyscButton))
                 .addGap(0, 30, Short.MAX_VALUE))
         );
+    }
 
+    private void initWyczyscButtonListener() {
+        WyczyscButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                simulationRunner.resetRunner();
+                BityTextField.setText("");
+                ZakodowaneTextField.setText("");
+                ZakloconeTextField.setText("");
+                OdkodowaneTextField.setText("");
+                OdkodowaneTextField.setText("");
+                PrzeslaneBityTextField.setText("");
+                WykryteBledyTextField.setText("");
+                BityNadmiaroweTextField.setText("");
+                SkorygowaneBledyTextField.setText("");
+                NiewykryteBledyTextField.setText("");
+            }
+        });
+    }
+
+    private void initLayout() {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(MetodaDetekcjiKorekcji, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NadawaneBity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(OdbieraneBity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Ostatnie, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                layout.createParallelGroup(GroupLayout.Alignment.CENTER)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
+                                        .addComponent(MetodaDetekcjiKorekcjiPanel, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(NadawaneBityPanel, GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(BityOdbieranePanel, GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(PodsumowaniePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(MetodaDetekcjiKorekcji, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4)
-                .addComponent(NadawaneBity, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(OdbieraneBity, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Ostatnie, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(MetodaDetekcjiKorekcjiPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(4, 4, 4)
+                                .addComponent(NadawaneBityPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BityOdbieranePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(PodsumowaniePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
         );
-
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
-
-    private void ParzystosciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ParzystosciActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ParzystosciActionPerformed
-
-    private void HammingaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HammingaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_HammingaActionPerformed
-
-    private void BityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BityActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BityActionPerformed
-
-    private void GenerujActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerujActionPerformed
-        /*int n=Integer.parseInt(IloscGenerowanychBitow.getValue().toString());
-	if (n%8!=0)
-	{
-            n+=8-n%8;
-            IloscGenerowanychBitow.setValue(n);
-	}
-        DataBits inputBits = new DataBits();
-	inputBits.generate(n);
-	Bity.setText(inputBits.toString());*/
-        int length = Integer.parseInt(IloscGenerowanychBitow.getValue().toString());
-
-        this.signalGenerator.setSignalLength(length);
-
-        signalGenerator.generateSignal();
-
-        byte[] generated = signalGenerator.getGeneratedSignal();
-
-        Bity.setText(bytesToString(generated));
-
-    }//GEN-LAST:event_GenerujActionPerformed
-
-    private String bytesToString(byte[] bytes){
-        String generatedBits = "";
-
-        for(byte b : bytes){
-            generatedBits += Integer.toBinaryString(b & 255 | 256).substring(1) + " ";
-        }
-
-        return generatedBits;
     }
 
-    private void ZakodowaneOdbieraneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZakodowaneOdbieraneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ZakodowaneOdbieraneActionPerformed
-
-    private void PrzeslaneBityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrzeslaneBityActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PrzeslaneBityActionPerformed
-
-    private void WyczyscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WyczyscActionPerformed
-        Bity.setText("");
-	ZakodowaneNadawane.setText("");
-	NiewykryteBledy.setText("");
-	Zaklocone.setText("");
-        OdkodowaneSurowe.setText("");
-	OdkodowaneKorekcja.setText("");
-	PrzeslaneBity.setText("");
-	WykryteBledy.setText("");
-	BityNadmiarowe.setText("");
-	SkorygowaneBledy.setText("");
-
-	this.encodedBits = null;
-	this.decodedBits = null;
-	this.disruptedBits = null;
-	this.disruptionGenerator = new BitDisruptionGenerator();
-	this.signalGenerator = new Simple7BitSignalGenerator();
-    }//GEN-LAST:event_WyczyscActionPerformed
-
-    private void initListeners(){
-        initMethodButtonsListeners();
-        initActionButtonsListeners();
-    }
-
-    private void initMethodButtonsListeners(){
-        Crc16.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                crc16Setup();
-            }
-        });
-
-        Sdlc.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                sdlcSetup();
-            }
-        });
-
-        SDLCReverse.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                sdlcReverseSetup();
-            }
-        });
-
-        Crc32.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                crc32Setup();
-            }
-        });
-
-        Parzystosci.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                paritySetup();
-            }
-        });
-
-        Hamminga.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                hammingSetup();
-            }
-        });
-    }
-
-    private void initActionButtonsListeners(){
-        Koduj.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                encode();
-            }
-        });
-
-        Zakloc.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                disrupt();
-            }
-        });
-
-        Dekoduj.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                decode();
-            }
-        });
-    }
-
-    private void encode(){
-        this.encodedBits = this.algorithm.encode(this.signalGenerator.getGeneratedSignal());
-        String encodedDataString = bytesToString(this.encodedBits);
-
-        ZakodowaneNadawane.setText(encodedDataString);
-    }
-
-    private void disrupt(){
-
-        disruptionGenerator.setNumberOfBitsToDisrupt(Integer.parseInt(IloscZaklocanychBitow.getValue().toString()));
-
-        this.disruptedBits = disruptionGenerator.disrupt(this.encodedBits);
-
-        Zaklocone.setText(bytesToString(this.disruptedBits));
-    }
-
-    private void decode(){
-
-        if(disruptedBits != null){
-            this.decodedBits = this.algorithm.decode(this.disruptedBits);
-        }else{
-            this.decodedBits = this.algorithm.decode(encodedBits);
-        }
-
-        if(decodedBits != null && decodedBits.length != 0){
-
-                OdkodowaneKorekcja.setText(bytesToString(this.decodedBits));
-
-        }else{
-            OdkodowaneKorekcja.setText(algorithm.getErrors());
-        }
-
-
-
-
-        PrzeslaneBity.setText(String.valueOf(countBits(encodedBits)));
-        WykryteBledy.setText(String.valueOf(algorithm.getErrorsCount()));
-        NiewykryteBledy.setText(String.valueOf(disruptionGenerator.getNumberOfCreatedErrors() - algorithm.getErrorsCount()));
-        BityNadmiarowe.setText(String.valueOf(getNumberOfRedundantBits()));
-        SkorygowaneBledy.setText(String.valueOf(algorithm.getCorrectedErrorsCount()));
-
-    }
-
-    private int countBits(byte[] bytes){
-        return bytes.length * 8;
-    }
-
-    private int getNumberOfRedundantBits(){
-        return countBits(encodedBits) - countBits(signalGenerator.getGeneratedSignal());
-    }
-
-    private void crc16Setup(){
-        this.algorithm = new CyclicRedundancyCheck16Bit("crc16");
-    }
-
-    private void sdlcSetup(){
-        this.algorithm = new CyclicRedundancyCheck16Bit("sdlc");
-    }
-
-    private void sdlcReverseSetup(){
-        this.algorithm = new CyclicRedundancyCheck16Bit("sdlc reverse");
-    }
-
-    private void crc32Setup(){
-        this.algorithm = new CyclicRedundancyCheck32Bit("crc32");
-    }
-
-    private void paritySetup(){
-        this.algorithm = new EvenParityBitControl();
-    }
-
-    private void hammingSetup(){
-        this.algorithm = new HammingCode();
-    }
-
-    private EDACAlgorithm algorithm;
-    private SignalGenerator signalGenerator;
-    private BitDisruptionGenerator disruptionGenerator;
-    private byte[] encodedBits;
-    private byte[] disruptedBits;
-    private byte[] decodedBits;
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Bity;
-    private javax.swing.JLabel BityNad;
-    private javax.swing.JLabel BityNadawane;
-    private javax.swing.JTextField BityNadmiarowe;
-    private javax.swing.JLabel BityOdbierane;
-    private javax.swing.JLabel BityZakodowan;
-    private javax.swing.JLabel BledyNiewykryte;
-    private javax.swing.JLabel BledySkorygowane;
-    private javax.swing.JLabel BledyWykryte;
-    private javax.swing.JRadioButton Crc16;
-    private javax.swing.JRadioButton Crc32;
-    private javax.swing.JButton Dekoduj;
-    private javax.swing.JLabel Detekcji;
-    private javax.swing.JButton Generuj;
-    private javax.swing.ButtonGroup GrupaMetody;
-    private javax.swing.JRadioButton Hamminga;
-    private javax.swing.JSpinner IloscGenerowanychBitow;
-    private javax.swing.JSpinner IloscZaklocanychBitow;
-    private javax.swing.JButton Koduj;
-    private javax.swing.JPanel MetodaDetekcjiKorekcji;
-    private javax.swing.JPanel NadawaneBity;
-    private javax.swing.JTextField NiewykryteBledy;
-    private javax.swing.JPanel OdbieraneBity;
-    private javax.swing.JLabel ZakloconeLabel;
-    private javax.swing.JPanel Ostatnie;
-    private javax.swing.JRadioButton Parzystosci;
-    private javax.swing.JTextField OdkodowaneSurowe;
-    private javax.swing.JLabel OdkodowaneSuroweLabel;
-    private javax.swing.JLabel Podsumowanie;
-    private javax.swing.JTextField PrzeslaneBity;
-    private javax.swing.JLabel PrzeslaneBityDanych;
-    private javax.swing.JLabel PrzeslaneBityNadmiarowe;
-    private javax.swing.JRadioButton SDLCReverse;
-    private javax.swing.JRadioButton Sdlc;
-    private javax.swing.JTextField SkorygowaneBledy;
-    private javax.swing.JTextField OdkodowaneKorekcja;
-    private javax.swing.JLabel OdkodowaneKorekcjaLabel;
-    private javax.swing.JButton Wyczysc;
-    private javax.swing.JTextField WykryteBledy;
-    private javax.swing.JButton Zakloc;
-    private javax.swing.JTextField ZakodowaneNadawane;
-    private javax.swing.JTextField Zaklocone;
-    // End of variables declaration//GEN-END:variables
 }

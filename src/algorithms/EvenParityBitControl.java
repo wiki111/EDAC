@@ -54,6 +54,7 @@ public class EvenParityBitControl implements EDACAlgorithm{
         for(int i = 0; i < receivedData.length; i++){
             if(!countOnesAndCheckIfEven(receivedData[i])){
                 reportError("Bit count not correct. Transmission error was detected on byte " + (i+1) + " of received data. \n ");
+                errorsDetectedNumber++;
             }else{
                 decodedBytes.add(stripParityBit(receivedData[i]));
             }

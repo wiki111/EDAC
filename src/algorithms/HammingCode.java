@@ -12,8 +12,6 @@ public class HammingCode implements EDACAlgorithm {
     private int numberOfCorrectedErrors = 0;
     private int errorPosition = -1;
 
-
-
     @Override
     public byte[] encode(byte[] data) {
         inputData = data;
@@ -93,7 +91,6 @@ public class HammingCode implements EDACAlgorithm {
         return (byte) (changedByte & ~(1<<bitPosition));
     }
 
-
     private void calculateAndInsertParityBitsValues(){
         for(int i = 0; i < parity_bits_added; i++){
             boolean parity_bit_value = getParity(i, encodedData);
@@ -167,6 +164,14 @@ public class HammingCode implements EDACAlgorithm {
             errorLogs = "[ERROR] Detected error at position " + errorPosition;
             numberOfErrors++;
             data = getCorrectedData(data, error_location);
+        }
+
+        if(numberOfCorrectedErrors > 1){
+            return null;
+        }
+
+        if(numberOfErrors <= 2 && numberOfCorrectedErrors <= 1){
+            return getOriginalData(data, parity_bits_added);
         }
 
         return getOriginalData(data, parity_bits_added);
@@ -246,7 +251,12 @@ public class HammingCode implements EDACAlgorithm {
 
     @Override
     public int getCorrectedErrorsCount() {
-        return numberOfCorrectedErrors;
+        if(numberOfCorrectedErrors > 1){
+            errorLogs = "[FATAL ERROR] Too much errors to detect or correct.";
+            return 0;
+        }else{
+            return numberOfCorrectedErrors;
+        }
     }
 
     private class Counter{

@@ -125,7 +125,8 @@ public class CyclicRedundancyCheck16Bit implements EDACAlgorithm {
             return decodedData;
         }else{
             errorLog = CRC16_ERROR;
-            return new byte[0];
+            numberOfErrors++;
+            return null;
         }
     }
 

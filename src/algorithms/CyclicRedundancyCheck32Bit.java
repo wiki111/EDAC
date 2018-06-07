@@ -83,7 +83,8 @@ public class CyclicRedundancyCheck32Bit implements EDACAlgorithm{
             return decodedData;
         }else{
             errorLog = CRC32_ERROR;
-            return new byte[0];
+            numberOfErrors++;
+            return null;
         }
     }
 
