@@ -65,7 +65,6 @@ public class EvenParityBitControl implements EDACAlgorithm{
 
     private void reportError(String message){
         errorsLog += PARITY_CHECK_ERROR + " There was an error : " + message;
-        errorsDetectedNumber++;
     }
 
     private byte stripParityBit(byte sample){
